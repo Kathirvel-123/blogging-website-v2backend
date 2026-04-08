@@ -11,14 +11,14 @@ import aws from "aws-sdk";
 import Blog from './Schema/Blog.js';
 import Notification from './Schema/Notification.js'
 import Comment from "./Schema/Comment.js"
-import admin from "firebase-admin";
+
 
 
 //schema below
 import User from './Schema/User.js';
 
 const server = express();
-let PORT = 3000;
+let PORT = process.env.PORT || 3000;
 
 const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
