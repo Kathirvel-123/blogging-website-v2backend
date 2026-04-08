@@ -6,12 +6,13 @@ import { nanoid } from 'nanoid';
 import jwt, { decode } from 'jsonwebtoken';
 import cors from 'cors';
 import admin from "firebase-admin";
-import serviceAccountKey from "./react-js-blog-website-1db43-firebase-adminsdk-fbsvc-9f033c911d.json" assert { type:"json" }
 import { getAuth } from "firebase-admin/auth"
 import aws from "aws-sdk";
 import Blog from './Schema/Blog.js';
 import Notification from './Schema/Notification.js'
 import Comment from "./Schema/Comment.js"
+import admin from "firebase-admin";
+
 
 //schema below
 import User from './Schema/User.js';
@@ -19,9 +20,14 @@ import User from './Schema/User.js';
 const server = express();
 let PORT = 3000;
 
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+
+// Fix private key formatting
+serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, '\n');
+
 admin.initializeApp({
-    credential: admin.credential.cert(serviceAccountKey)
-})
+  credential: admin.credential.cert(serviceAccount)
+});
 
 let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // regex for email
 let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for password
