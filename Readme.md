@@ -1,3 +1,17 @@
+## 🚀 Live Demo (URL)
+🔗 Backend (Render): https://blogging-website-v2backend.onrender.com
+
+🔗 Frontend (Netlify): https://blogging-version2.netlify.app/
+
+## 🔑 Demo Credentials (For Testing)
+
+To explore the live application without creating a new account, you can use the following test credentials:
+```
+- Email: kathirvelmuruganwanthan@gmail.com
+- Password: Kathirvel@123
+```
+⚠️ Note: This is a demo account intended for testing purposes only.
+
 # 📝 Fullstack MERN Blogging Website
 
 A modern, fully functional **blogging platform** built using the **MERN Stack (MongoDB, Express.js, React.js, Node.js)**.  
